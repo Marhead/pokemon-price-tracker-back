@@ -1,0 +1,29 @@
+[package]
+name = "pokemon-price-tracker-backend"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "server"
+path = "src/main.rs"
+
+[dependencies]
+axum = { version = "=0.8.8", features = ["macros"] }
+tokio = { version = "=1.50.0", features = ["full"] }
+sea-orm = { version = "=1.1.19", features = ["sqlx-sqlite", "runtime-tokio-rustls", "macros"] }
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.149"
+tower-http = { version = "=0.6.8", features = ["cors", "trace"] }
+reqwest = { version = "=0.13.2", features = ["json"] }
+tracing = "=0.1.44"
+tracing-subscriber = { version = "=0.3.23", features = ["env-filter"] }
+thiserror = "=2.0.18"
+anyhow = "=1.0.102"
+tokio-stream = "=0.1.18"
+chrono = { version = "=0.4.44", features = ["serde"] }
+regex = "=1.12.3"
+urlencoding = "=2.1.3"
+moka = { version = "=0.12.15", features = ["future"] }
+
+[dev-dependencies]
+tower = { version = "=0.5.3", features = ["util"] }

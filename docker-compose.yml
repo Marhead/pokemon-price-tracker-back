@@ -1,0 +1,15 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "sqlite:/app/db/pokemon_cards.db"
+      HOST: "0.0.0.0"
+      PORT: "3000"
+      ALLOWED_ORIGINS: "http://localhost:5173"
+      RUST_LOG: "info"
+      TZ: "Asia/Seoul"
+    volumes:
+      - ../scraper/db/pokemon_cards.db:/app/db/pokemon_cards.db:ro
+    restart: unless-stopped
